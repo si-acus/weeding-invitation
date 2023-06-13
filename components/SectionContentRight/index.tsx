@@ -5,7 +5,7 @@ const { Meta } = Card;
 import bg from '../../public/silvie.jpg'
 
 const App = () => (
-  <section style={{ textAlign: 'center', marginTop: 48, marginBottom: 40, padding: '3em', margin: 0 }}>
+  <section id="SectionContentRight" style={{ textAlign: 'center', marginTop: 48, marginBottom: 40, padding: '3em', margin: 0 }}>
     <Row justify="center" align="middle">
       <Col lg={12} sm={24} xs={24}>
         <Space direction='horizontal'>

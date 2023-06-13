@@ -1,19 +1,10 @@
 import { Carousel, Space, Typography } from 'antd'
-import Image from 'next/image'
 import React from 'react'
 import bg from '../../public/beatriz-perez-moya-M2T1j-6Fn8w-unsplash.jpg'
+import bg1 from '../../public/sandy-millar-8vaQKYnawHw-unsplash.jpg'
+import bg2 from '../../public/heather-mount-ph3z4KuJ4OA-unsplash.jpg'
 import CountDown from './CountDown'
 const { Title } = Typography;
-const contentStyle: React.CSSProperties = {
-  height: '100vh',
-  color: '#fff',
-  lineHeight: '100vh',
-  textAlign: 'center',
-  backgroundSize: 'cover',
-  backgroundImage: `url('${bg.src}')`,
-  backgroundAttachment: 'fixed',
-  backgroundPosition: 'center',
-}
 
 const App: React.FC = () => (
   <section>
@@ -25,14 +16,41 @@ const App: React.FC = () => (
     }}>
 
       <Carousel autoplay>
-        <div style={{height:'100%', width:'100%'}}>
-          <div style={contentStyle} >-</div>
+        <div style={{ height: '100%', width: '100%' }}>
+          <div style={{
+            height: '100vh',
+            color: '#fff',
+            lineHeight: '100vh',
+            textAlign: 'center',
+            backgroundSize: 'cover',
+            backgroundImage: `url('${bg.src}')`,
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+          }} >-</div>
         </div>
-        <div style={{height:'100%', width:'100%'}}>
-          <div style={contentStyle} >-</div>
+        <div style={{ height: '100%', width: '100%' }}>
+          <div style={{
+            height: '100vh',
+            color: '#fff',
+            lineHeight: '100vh',
+            textAlign: 'center',
+            backgroundSize: 'cover',
+            backgroundImage: `url('${bg1.src}')`,
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+          }} >-</div>
         </div>
-        <div style={{height:'100%', width:'100%'}}>
-          <div style={contentStyle} >-</div>
+        <div style={{ height: '100%', width: '100%' }}>
+          <div style={{
+            height: '100vh',
+            color: '#fff',
+            lineHeight: '100vh',
+            textAlign: 'center',
+            backgroundSize: 'cover',
+            backgroundImage: `url('${bg2.src}')`,
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+          }} >-</div>
         </div>
 
       </Carousel>
@@ -61,7 +79,7 @@ const App: React.FC = () => (
       <Title level={4} style={{ marginBottom: 0 }}>
         THE WEDDING OF
       </Title>
-      <Title level={1} style={{ marginBottom: 0, marginTop: '0.2em' }}>
+      <Title level={1} style={{ marginBottom: 0, marginTop: '0.2em', fontFamily: `'Alex_Brush'` }}>
         Silvie & Aris
       </Title>
 

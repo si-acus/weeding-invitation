@@ -1,6 +1,8 @@
 import {
+  FloatButton,
   Typography,
 } from 'antd';
+import { EnvironmentOutlined, EllipsisOutlined, TeamOutlined, CalendarOutlined, FormOutlined } from '@ant-design/icons';
 import SectionHead from '../components/SectionHead'
 import SectionFooter from '../components/SectionFooter'
 import SectionText from '../components/SectionText'
@@ -10,9 +12,17 @@ import SectionInvitation from '../components/SectionInvitation'
 import SectionMap from '../components/SectionMap'
 import SectionComment from '../components/SectionComment'
 import SectionCollapse from '../components/SectionCollapse'
+
 const { Title } = Typography;
 
 export default function Home() {
+  const handleClickScroll = (e:string) => {
+    const element = document.getElementById(e);
+    if (element) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <>
       <SectionHead />
@@ -38,6 +48,14 @@ export default function Home() {
       <SectionComment />
       <SectionFooter />
 
+     
+      <FloatButton.Group trigger="click" style={{ right: 24 }} type='primary' icon={<EllipsisOutlined />} >
+        <FloatButton.BackTop visibilityHeight={0} />
+        <FloatButton icon={<TeamOutlined />} onClick={()=>handleClickScroll('SectionContentRight')}/>
+        <FloatButton icon={<CalendarOutlined/>} onClick={()=>handleClickScroll('SectionInvitation')}/>
+        <FloatButton icon={<EnvironmentOutlined />} onClick={()=>handleClickScroll('SectionMap')}/>
+        <FloatButton icon={<FormOutlined />} onClick={()=>handleClickScroll('SectionComment')}/>
+      </FloatButton.Group>
     </>
   );
 }

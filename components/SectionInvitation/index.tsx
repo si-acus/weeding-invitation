@@ -8,7 +8,7 @@ import bg5 from '../../public/silviearis5.jpg'
 const { Title } = Typography;
 
 const App = () => (
-  <section style={{ textAlign: 'center', marginTop: 48, marginBottom: 40, padding: '3em', margin: 0 }}>
+  <section id="SectionInvitation" style={{ textAlign: 'center', marginTop: 48, marginBottom: 40, padding: '3em', margin: 0 }}>
     <Row justify="center" align="middle">
       <Col lg={12} sm={24} xs={24}>
         <Space direction='horizontal'>

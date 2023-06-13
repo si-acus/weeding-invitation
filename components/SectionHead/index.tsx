@@ -62,7 +62,7 @@ const App: React.FC = () => (
         THE WEDDING OF
       </Title>
       <Title level={1} style={{ marginBottom: 0, marginTop: '0.2em' }}>
-        Selvie & Aris
+        Silvie & Aris
       </Title>
 
       <CountDown />

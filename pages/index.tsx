@@ -1,23 +1,16 @@
 import {
   Typography,
-  Space,
-  Divider,
 } from 'antd';
 import SectionHead from '../components/SectionHead'
 import SectionFooter from '../components/SectionFooter'
 import SectionText from '../components/SectionText'
 import SectionContentRight from '../components/SectionContentRight'
+import SectionContentLeft from '../components/SectionContentLeft'
 import SectionInvitation from '../components/SectionInvitation'
 import SectionMap from '../components/SectionMap'
 import SectionComment from '../components/SectionComment'
+import SectionCollapse from '../components/SectionCollapse'
 const { Title } = Typography;
-
-const location = {
-  address: '1600 Amphitheatre Parkway, Mountain View, california.',
-  lat: 37.42216,
-  lng: -122.08427,
-} // our location object from earlier
-
 
 export default function Home() {
   return (
@@ -32,6 +25,7 @@ export default function Home() {
         </Title>
       </SectionText>
       <SectionContentRight />
+      <SectionContentLeft />
       <SectionText>
 
         <Title level={4} style={{ marginBottom: 0, }}>
@@ -39,7 +33,8 @@ export default function Home() {
           AR-RUM AYAT : 21        </Title>
       </SectionText>
       <SectionInvitation />
-      <SectionMap location={location} zoomLevel={17} />
+      <SectionMap />
+      <SectionCollapse />
       <SectionComment />
       <SectionFooter />
 

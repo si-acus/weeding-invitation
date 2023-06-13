@@ -33,8 +33,6 @@
   },
   "dependencies": {
     "@ant-design/compatible": "^5.1.1",
-    "dayjs": "^1.11.8",
-    "google-map-react": "^2.2.1",
     "moment": "^2.29.4",
     "qs": "^6.11.2",
     "rc-queue-anim": "^2.0.0",

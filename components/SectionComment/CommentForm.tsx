@@ -16,12 +16,13 @@ interface DataType {
 const App: React.FC = () => {
   const [data, setData] = useState<DataType[]>();
   const [loading, setLoading] = useState(false);
+  const [form] = Form.useForm();
   const onFinish = (values: any) => {
     fetch(`https://script.google.com/macros/s/AKfycbwFvIfuxGYzsp6ETpNsq94Fay4q0B6vxL7PSc5T9FK7PyUOyQOK8eGsAEqWa5u4xnj8/exec?${qs.stringify({ action: "insert", ...values })}`, { method: "GET", redirect: "follow" })
       .then((response) => {
-        console.log(response);
+        form.resetFields();
         fetchData();
-      })
+      }).catch((e)=>console.log(e))
   };
   
   const onFinishFailed = (errorInfo: any) => {
@@ -34,11 +35,10 @@ const App: React.FC = () => {
         fetch(response.url)
           .then((res) => res.json())
           .then(({ data }) => {
-            console.log('results', data)
-            setData(data);
             setLoading(false);
-          });
-      })
+            setData(data);
+          }).catch((e)=>console.log(e))
+      }).catch((e)=>console.log(e))
 
   };
 
@@ -57,6 +57,7 @@ const App: React.FC = () => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
+        form={form}
       >
         <Form.Item
           label="Name"
@@ -87,9 +88,6 @@ const App: React.FC = () => {
         itemLayout="vertical"
         size="large"
         pagination={{
-          onChange: (page) => {
-            console.log(page);
-          },
           pageSize: 3,
         }}
         dataSource={data}
@@ -99,7 +97,7 @@ const App: React.FC = () => {
           >
             <List.Item.Meta
               title={<a >{item.name} <i>{item.confirmation}</i></a>}
-              description={moment(item.date).fromNow(true)}
+              description={moment(item.date).fromNow()}
             />
             {item.outgiving}
           </List.Item>

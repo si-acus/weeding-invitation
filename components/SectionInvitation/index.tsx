@@ -1,37 +1,53 @@
-import { Col, Row, Space, Typography, Card } from 'antd'
 import React from 'react'
+import { Col, Row, Carousel, Typography, Card, Space } from 'antd'
+import bg1 from '../../public/silviearis1.jpg'
+import bg2 from '../../public/silviearis2.jpg'
+import bg3 from '../../public/silviearis3.jpg'
+import bg4 from '../../public/silviearis4.jpg'
+import bg5 from '../../public/silviearis5.jpg'
 const { Title } = Typography;
-const { Meta } = Card;
 
 const App = () => (
   <section style={{ textAlign: 'center', marginTop: 48, marginBottom: 40, padding: '3em', margin: 0 }}>
     <Row justify="center" align="middle">
-      <Col span={6}>
-
+      <Col lg={12} sm={24} xs={24}>
+        <Space direction='horizontal'>
+          <Card
+            hoverable
+            style={{ width: 240 }}
+            cover={<Carousel autoplay>
+              <img alt="example" src={bg1.src} />
+              <img alt="example" src={bg2.src} />
+              <img alt="example" src={bg3.src} />
+              <img alt="example" src={bg4.src} />
+              <img alt="example" src={bg5.src} />
+            </Carousel>}
+          />
+        </Space>
       </Col>
-      <Col span={18}>
+      <Col lg={12} sm={24} xs={24}>
         <Title level={4} style={{ marginBottom: 0 }}>
           AKAD NIKAH
         </Title>
         <Title level={4} style={{ marginBottom: 0 }}>
-          MINGGU, 05 MARET 2023
-          08.00 WIB
+          Sabtu, 1 Juli 2023
+          09.00-11.00 WIB
         </Title>
         <Title level={4} style={{ marginBottom: 0 }}>
-          Graha Panglinggihan 70
-          Jl. Raya Cihuni Cibatu, Cimaragas, Kec. Pangatikan, Kabupaten Garut, Jawa Barat 44183
+          Gedung BK3D/ Wisma Bhumi Atikan
+          Jl.Raya Sukabumi, Cibadak, Jawa Barat
         </Title>
 
         <Title level={4} style={{ marginBottom: 0 }}>
           RESEPSI
         </Title>
         <Title level={4} style={{ marginBottom: 0 }}>
-          MINGGU, 05 MARET 2023
-          11.00-14.00 WIB
+          Sabtu, 1 Juli 2023
+          11.00-15.00WIB
         </Title>
         <Title level={4} style={{ marginBottom: 0 }}>
-          Graha Panglinggihan 70
-          Jl. Raya Cihuni Cibatu, Cimaragas, Kec. Pangatikan, Kabupaten Garut, Jawa Barat 44183
+          Gedung BK3D/ Wisma Bhumi Atikan
+          Jl.Raya Sukabumi, Cibadak, Jawa Barat
         </Title>
       </Col>
     </Row>

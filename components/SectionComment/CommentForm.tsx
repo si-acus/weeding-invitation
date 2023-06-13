@@ -1,6 +1,6 @@
 import React, { useEffect, useState }from 'react';
 import { Button, Card, Form, Input, Select, List, Space } from 'antd';
-import qs from 'qs';
+import queryString from 'query-string';
 import moment from 'moment'
 import 'moment/locale/id'  
 moment.locale('id')
@@ -18,7 +18,7 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const onFinish = (values: any) => {
-    fetch(`https://script.google.com/macros/s/AKfycbwFvIfuxGYzsp6ETpNsq94Fay4q0B6vxL7PSc5T9FK7PyUOyQOK8eGsAEqWa5u4xnj8/exec?${qs.stringify({ action: "insert", ...values })}`, { method: "GET", redirect: "follow" })
+    fetch(`https://script.google.com/macros/s/AKfycbwFvIfuxGYzsp6ETpNsq94Fay4q0B6vxL7PSc5T9FK7PyUOyQOK8eGsAEqWa5u4xnj8/exec?${queryString.stringify({ action: "insert", ...values })}`, { method: "GET", redirect: "follow" })
       .then((response) => {
         form.resetFields();
         fetchData();

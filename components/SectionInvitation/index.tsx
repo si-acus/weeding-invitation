@@ -5,6 +5,7 @@ import bg2 from '../../public/silviearis2.jpg'
 import bg3 from '../../public/silviearis3.jpg'
 import bg4 from '../../public/silviearis4.jpg'
 import bg5 from '../../public/silviearis5.jpg'
+import Image from 'next/image'
 const { Title } = Typography;
 
 const App = () => (
@@ -16,11 +17,11 @@ const App = () => (
             hoverable
             style={{ width: 240 }}
             cover={<Carousel autoplay>
-              <img alt="example" src={bg1.src} />
-              <img alt="example" src={bg2.src} />
-              <img alt="example" src={bg3.src} />
-              <img alt="example" src={bg4.src} />
-              <img alt="example" src={bg5.src} />
+              <Image alt="example" src={bg1.src} width={240} height={360} />
+              <Image alt="example" src={bg2.src} width={240} height={360} />
+              <Image alt="example" src={bg3.src} width={240} height={360} />
+              <Image alt="example" src={bg4.src} width={240} height={360} />
+              <Image alt="example" src={bg5.src} width={240} height={360} />
             </Carousel>}
           />
         </Space>

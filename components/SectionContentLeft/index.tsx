@@ -3,7 +3,7 @@ import React from 'react'
 const { Title } = Typography;
 const { Meta } = Card;
 import bg from '../../public/aris.jpg'
-
+import Image from 'next/image';
 const App = () => (
   <section style={{ textAlign: 'center', marginTop: 48, marginBottom: 40, padding: '3em', margin: 0 }}>
     <Row justify="center" align="middle">
@@ -12,9 +12,9 @@ const App = () => (
           <Card
             hoverable
             style={{ width: 240 }}
-            cover={<img alt="example" src={bg.src} />}
+            cover={<Image alt="example" src={bg.src} width={240} height={360}/>}
           >
-            <Meta title="Aris"  />
+            <Meta title="Aris" />
           </Card>
         </Space>
       </Col>

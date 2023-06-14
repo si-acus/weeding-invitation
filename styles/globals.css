@@ -18,3 +18,38 @@ body {
 
 /*! elementor - v3.13.3 - 28-05-2023 */
 .elementor-widget-google_maps .elementor-widget-container{overflow:hidden}.elementor-widget-google_maps .elementor-custom-embed{line-height:0}.elementor-widget-google_maps iframe{height:300px}
+
+.ant-modal, .ant-modal-content {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  top: 0;
+  border-radius: 0 !important;
+ }
+ .ant-modal-body {
+  height: calc(100vh - 110px);
+ }
+ .ant-modal-wrap {
+  overflow: hidden !important;
+ }
+ .ant-modal-header {
+  visibility: hidden;
+ }
+ .header-content {
+  position: absolute;
+  bottom: 200px;
+  text-align: center;
+  color: white;
+}
+ .ant-modal-close-x {
+  visibility: hidden;
+ }
+ .ant-modal-footer{
+  text-align: center !important;
+ }
+ .ant-modal-content{
+  background-image: url(../public/beatriz-perez-moya-M2T1j-6Fn8w-unsplash.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ }

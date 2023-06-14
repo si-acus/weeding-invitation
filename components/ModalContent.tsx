@@ -21,11 +21,11 @@ const App = () => {
                 ]}
             >
                 <div className='header-content'>
-                    <Title level={1} style={{ marginBottom: 0, marginTop: '0.2em', fontFamily: `'Alex_Brush'` , color:'white', fontSize: '60px'}}>
+                    <Title level={1} style={{ marginBottom: 0, marginTop: '0.2em', fontFamily: `'Alex_Brush'` , fontSize: '60px'}}>
                         Silvie & Aris
                     </Title>
-                    <p>Kepada Bapak/Ibu/Saudara/i</p>
-                    <p>{to}</p>
+                    <h3>Kepada Bapak/Ibu/Saudara/i</h3>
+                    <h3>{to}</h3>
                 </div>
             </Modal>
         </>

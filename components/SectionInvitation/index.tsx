@@ -9,7 +9,7 @@ import Image from 'next/image'
 const { Title } = Typography;
 
 const App = () => (
-  <section id="SectionInvitation" style={{ textAlign: 'center', marginTop: 48, marginBottom: 40, padding: '3em', margin: 0 }}>
+  <section id="SectionInvitation" style={{ textAlign: 'center', marginTop: 48, marginBottom: 40, padding: '90px 45px', margin: 0 }}>
     <Row justify="center" align="middle">
       <Col lg={12} sm={24} xs={24}>
         <Space direction='horizontal'>
@@ -34,11 +34,6 @@ const App = () => (
           Sabtu, 1 Juli 2023
           09.00-11.00 WIB
         </Title>
-        <Title level={4} style={{ marginBottom: 0 }}>
-          Gedung BK3D/ Wisma Bhumi Atikan
-          Jl.Raya Sukabumi, Cibadak, Jawa Barat
-        </Title>
-
         <Title level={4} style={{ marginBottom: 0 }}>
           RESEPSI
         </Title>

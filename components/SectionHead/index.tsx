@@ -79,7 +79,7 @@ const App: React.FC = () => (
       <Title level={4} style={{ marginBottom: 0 }}>
         THE WEDDING OF
       </Title>
-      <Title level={1} style={{ marginBottom: 0, marginTop: '0.2em', fontFamily: `'Alex_Brush'`, fontSize:'60px'}}>
+      <Title level={1} style={{ marginBottom: '40px', marginTop: '0.2em', fontFamily: `'Alex_Brush'`, fontSize:'60px'}}>
         Silvie & Aris
       </Title>
 

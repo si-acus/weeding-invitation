@@ -19,17 +19,19 @@ import { motion } from 'framer-motion';
 const { Title } = Typography;
 
 const Home = () => {
-  const ref = React.useRef();
+  const ref = React.useRef<HTMLElement>(null);
   React.useEffect(() => {
+    const node = ref.current;
     const onWheel = (e: any) => {
+      if (ref.current)
       ref.current.scrollLeft += e.deltaY;
     };
-    ref.current?.addEventListener('wheel', onWheel, {
+    node?.addEventListener('wheel', onWheel, {
       passive: true,
       smooth: true,
     });
     return () => {
-      ref.current?.removeEventListener('wheel', onWheel, { passive: true });
+      node?.removeEventListener('wheel', onWheel, { passive: true });
     };
   }, []);
   const variants = {

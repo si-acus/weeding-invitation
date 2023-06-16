@@ -19,7 +19,7 @@ import { motion } from 'framer-motion';
 const { Title } = Typography;
 
 const Home = () => {
-  const ref = React.useRef<HTMLElement>(null);
+  const ref = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
     const node = ref.current;
     const onWheel = (e: any) => {

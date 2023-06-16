@@ -6,7 +6,7 @@ import bg3 from '../../public/silviearis3.jpg'
 import bg4 from '../../public/silviearis4.jpg'
 import bg5 from '../../public/silviearis5.jpg'
 import Image from 'next/image'
-import bg from '../../public/original_IMG_0566.jpg'
+import bg from '../../public/original_IMG_05661.jpg'
 const { Title } = Typography;
 
 const App = () => (

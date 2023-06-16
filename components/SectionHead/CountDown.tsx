@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Card, Space } from 'antd'
+import { motion } from 'framer-motion';
+
 function CountdownTimer() {
   const [expiryTime, setExpiryTime] = useState("1 july 2023 15:30:25")
   const [countdownTime, setCountdownTime] = useState(
@@ -44,10 +46,50 @@ function CountdownTimer() {
     < >
       {expiryTime !== "expired" ?
         <Space direction='horizontal'>
-          <Card size='small' style={{ width:'70px',  textAlign: 'center' }}><h3>{countdownTime.countdownDays} </h3> <p>Days</p></Card >
-          <Card size='small' style={{ width:'70px',  textAlign: 'center' }}><h3>{countdownTime.countdownHours} </h3> <p>Hours</p></Card >
-          <Card size='small' style={{ width:'70px',  textAlign: 'center' }}><h3>{countdownTime.countdownMinutes} </h3> <p>Minutes</p></Card >
-          <Card size='small' style={{ width:'70px',  textAlign: 'center' }}><h3>{countdownTime.countdownSeconds} </h3> <p>Seconds</p></Card >
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 1 }}
+            variants={{
+              visible: { opacity: 1, y: 1 },
+              hidden: { opacity: 0, y: -20 },
+            }}
+          >
+            <Card size='small' style={{ width: '70px', textAlign: 'center' }}><h3>{countdownTime.countdownDays} </h3> <p>Days</p></Card >
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 1 }}
+            variants={{
+              visible: { opacity: 1, y: 1 },
+              hidden: { opacity: 0, y: -20 },
+            }}
+          >
+            <Card size='small' style={{ width: '70px', textAlign: 'center' }}><h3>{countdownTime.countdownHours} </h3> <p>Hours</p></Card >
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 1 }}
+            variants={{
+              visible: { opacity: 1, y: 1 },
+              hidden: { opacity: 0, y: -20 },
+            }}
+          >
+            <Card size='small' style={{ width: '70px', textAlign: 'center' }}><h3>{countdownTime.countdownMinutes} </h3> <p>Minutes</p></Card >
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 1 }}
+            variants={{
+              visible: { opacity: 1, y: 1 },
+              hidden: { opacity: 0, y: -20 },
+            }}
+          >
+            <Card size='small' style={{ width: '70px', textAlign: 'center' }}><h3>{countdownTime.countdownSeconds} </h3> <p>Seconds</p></Card >
+          </motion.div>
         </Space>
         : <p>Deal has been Expired</p>}
     </>

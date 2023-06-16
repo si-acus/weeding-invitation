@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   FloatButton,
   Typography,
@@ -7,17 +8,44 @@ import SectionHead from '../components/SectionHead'
 import SectionFooter from '../components/SectionFooter'
 import SectionText from '../components/SectionText'
 import SectionContentRight from '../components/SectionContentRight'
-import SectionContentLeft from '../components/SectionContentLeft'
 import SectionInvitation from '../components/SectionInvitation'
 import SectionMap from '../components/SectionMap'
 import SectionComment from '../components/SectionComment'
 import SectionCollapse from '../components/SectionCollapse'
 import ModalContent from '../components/ModalContent'
 import dynamic from 'next/dynamic'
+import { motion } from 'framer-motion';
 
 const { Title } = Typography;
 
 const Home = () => {
+  const ref = React.useRef();
+  React.useEffect(() => {
+    const onWheel = (e: any) => {
+      ref.current.scrollLeft += e.deltaY;
+    };
+    ref.current?.addEventListener('wheel', onWheel, {
+      passive: true,
+      smooth: true,
+    });
+    return () => {
+      ref.current?.removeEventListener('wheel', onWheel, { passive: true });
+    };
+  }, []);
+  const variants = {
+    initial: {
+      scale: 1,
+      opacity: 1,
+    },
+    animate: {
+      scale: 0.75,
+      opacity: 0.5,
+      transition: {
+        delay: 0.5,
+        ease: 'linear',
+      },
+    },
+  };
   const handleClickScroll = (e: string) => {
     const element = document.getElementById(e);
     if (element) {
@@ -26,24 +54,49 @@ const Home = () => {
     }
   };
   return (
-    <>
+    <div ref={ref}>
       <ModalContent />
       <SectionHead />
       <SectionText>
-        <Title level={4} style={{ marginBottom: 0, fontFamily: `'Dancing_Script'`, fontSize: '40px' }}>
+        <motion.h4
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 1 }}
+          variants={{
+            visible: { opacity: 1, scale: 1 },
+            hidden: { opacity: 0, scale: 0 },
+          }}
+          style={{ marginBottom: 0, fontFamily: `'Dancing_Script'`, fontSize: '40px' }}
+        >
           Assalamu&#39;alaikum Wr. Wb.
-        </Title>
-        <Title level={4} style={{ marginBottom: 0, }}>
+        </motion.h4>
+        <motion.h4
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 1 }}
+          variants={{
+            visible: { opacity: 1, scale: 1 },
+            hidden: { opacity: 0, scale: 0 },
+          }}
+        >
           Segala Puji Bagi Allah SWT yang telah menjadikan hambanya hidup berpasang-pasangan. Dengan memohon Ridho, Rahmat, dan Berkah Allah SWT, kami bermaksud untuk mengundang Saudara/i dalam acara pernikahan yang kami selenggarakan.
-        </Title>
+        </motion.h4>
       </SectionText>
       <SectionContentRight />
-      <SectionContentLeft />
       <SectionText>
-
-      <Title level={4} style={{ marginBottom: 0, fontFamily: `'Dancing_Script'`, fontSize: '20px' }}>
+        <motion.h4
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 1 }}
+          variants={{
+            visible: { opacity: 1, scale: 1 },
+            hidden: { opacity: 0, scale: 0 },
+          }}
+          style={{ marginBottom: 0, fontFamily: `'Dancing_Script'`, fontSize: '20px' }}
+        >
           Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kamu yang berpikir.
-          AR-RUM AYAT : 21        </Title>
+          AR-RUM AYAT : 21
+        </motion.h4>
       </SectionText>
       <SectionInvitation />
       <SectionMap />
@@ -59,7 +112,7 @@ const Home = () => {
         <FloatButton icon={<EnvironmentOutlined />} onClick={() => handleClickScroll('SectionMap')} />
         <FloatButton icon={<FormOutlined />} onClick={() => handleClickScroll('SectionComment')} />
       </FloatButton.Group>
-    </>
+    </div>
   );
 }
 

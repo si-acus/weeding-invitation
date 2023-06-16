@@ -1,5 +1,5 @@
 import React, { useEffect, useState }from 'react';
-import { Button, Card, Form, Input, Select, List, Space } from 'antd';
+import { Button, Card, Form, Input, Select, List, Badge } from 'antd';
 import queryString from 'query-string';
 import moment from 'moment'
 import 'moment/locale/id'  
@@ -47,7 +47,7 @@ const App: React.FC = () => {
   });
 
   return (
-    <Card>
+    <Card style={{ backgroundColor: '#FFFFFF', opacity: 1 }}>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -74,7 +74,6 @@ const App: React.FC = () => {
           <Select>
             <Select.Option value="Hadir">Hadir</Select.Option>
             <Select.Option value="Tidak Bisa Hadir">Tidak Bisa Hadir</Select.Option>
-            <Select.Option value="Mungkin Hadir">Mungkin Hadir</Select.Option>
           </Select>
         </Form.Item>
 
@@ -96,7 +95,7 @@ const App: React.FC = () => {
             key={item.record_id}
           >
             <List.Item.Meta
-              title={<a >{item.name} <i>{item.confirmation}</i></a>}
+              title={<a >{item.name}  <Badge text={item.confirmation} color={item.confirmation==="Hadir"?"green":"pink"}/></a>}
               description={moment(item.date).fromNow()}
             />
             {item.outgiving}

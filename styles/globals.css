@@ -61,7 +61,7 @@ body {
 
 .header-content {
   position: absolute;
-  bottom: 200px;
+  bottom: calc(50% - 50px);
   text-align: center;
   width: 100%;
   left: 0;

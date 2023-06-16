@@ -27,11 +27,10 @@ const Home = () => {
       ref.current.scrollLeft += e.deltaY;
     };
     node?.addEventListener('wheel', onWheel, {
-      passive: true,
-      smooth: true,
+      passive: true
     });
     return () => {
-      node?.removeEventListener('wheel', onWheel, { passive: true });
+      node?.removeEventListener('wheel', onWheel, );
     };
   }, []);
   const variants = {

@@ -7,6 +7,8 @@ import bg4 from '../../public/silviearis4.jpg'
 import bg5 from '../../public/silviearis5.jpg'
 import Image from 'next/image'
 import bg from '../../public/original_IMG_05661.jpg'
+import {motion } from 'framer-motion'
+
 const { Title } = Typography;
 
 const App = () => (
@@ -36,24 +38,35 @@ const App = () => (
           </Space>
         </Col>
         <Col lg={12} sm={24} xs={24}>
-          <Title level={4} style={{ marginBottom: 0 }}>
-            AKAD NIKAH
-          </Title>
-          <Title level={4} style={{ marginBottom: 0, fontWeight: 'bold'}}>
-            Sabtu, 1 Juli 2023
-            09.00-11.00 WIB
-          </Title>
-          <Title level={4} style={{ marginBottom: 0 }}>
-            RESEPSI
-          </Title>
-          <Title level={4} style={{ marginBottom: 0, fontWeight: 'bold' }}>
-            Sabtu, 1 Juli 2023
-            11.00-15.00WIB
-          </Title>
-          <Title level={4} style={{ marginBottom: 0 }}>
-            Gedung BK3D/ Wisma Bhumi Atikan
-            Jl.Raya Sukabumi, Cibadak, Jawa Barat
-          </Title>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 1 }}
+            variants={{
+              visible: { opacity: 1, y: 1 },
+              hidden: { opacity: 0, y: -20 },
+            }}
+          >
+            <Title level={4} style={{ marginBottom: 0 }}>
+              AKAD NIKAH
+            </Title>
+
+            <Title level={4} style={{ marginBottom: 0, fontWeight: 'bold' }}>
+              Sabtu, 1 Juli 2023
+              09.00-11.00 WIB
+            </Title>
+            <Title level={4} style={{ marginBottom: 0 }}>
+              RESEPSI
+            </Title>
+            <Title level={4} style={{ marginBottom: 0, fontWeight: 'bold' }}>
+              Sabtu, 1 Juli 2023
+              11.00-15.00WIB
+            </Title>
+            <Title level={4} style={{ marginBottom: 0 }}>
+              Gedung BK3D/ Wisma Bhumi Atikan
+              Jl.Raya Sukabumi, Cibadak, Jawa Barat
+            </Title>
+          </motion.div>
         </Col>
       </Row>
     </div>

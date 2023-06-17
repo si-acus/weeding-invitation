@@ -56,7 +56,6 @@ const App = () => (
             }}
           >
             <Title level={4} style={{ marginBottom: 0 }}>
-              Silvie Aprilia Aqidah, S.Ag
               Anak ke-6 dari Bapak Babas Suhaemi & Ibu Tati Haryati
             </Title>
           </motion.div>

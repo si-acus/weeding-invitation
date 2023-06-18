@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   FloatButton,
   Typography,
 } from 'antd';
-import { EnvironmentOutlined, EllipsisOutlined, TeamOutlined, CalendarOutlined, FormOutlined } from '@ant-design/icons';
+import { EnvironmentOutlined, EllipsisOutlined, TeamOutlined, CalendarOutlined, FormOutlined, CaretRightOutlined, PauseOutlined } from '@ant-design/icons';
 import SectionHead from '../components/SectionHead'
 import SectionFooter from '../components/SectionFooter'
 import SectionText from '../components/SectionText'
@@ -24,29 +24,35 @@ const Home = () => {
     const node = ref.current;
     const onWheel = (e: any) => {
       if (ref.current)
-      ref.current.scrollLeft += e.deltaY;
+        ref.current.scrollLeft += e.deltaY;
     };
     node?.addEventListener('wheel', onWheel, {
       passive: true
     });
     return () => {
-      node?.removeEventListener('wheel', onWheel, );
+      node?.removeEventListener('wheel', onWheel,);
     };
   }, []);
-  const variants = {
-    initial: {
-      scale: 1,
-      opacity: 1,
-    },
-    animate: {
-      scale: 0.75,
-      opacity: 0.5,
-      transition: {
-        delay: 0.5,
-        ease: 'linear',
-      },
-    },
+  const audioRef = useRef<any>(null);
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [visibleModal, setVisibleModal] = React.useState(true);
+
+  const togglePlayPause = () => {
+    setIsPlaying((prev) => !prev);
   };
+  React.useEffect(() => {
+    if (isPlaying) {
+      if (audioRef.current && audioRef.current.play )
+        audioRef.current.play();
+    } else {
+      audioRef.current?.pause();
+    }
+  }, [isPlaying, audioRef]);
+  React.useEffect(() => {
+    if (!visibleModal) {
+      togglePlayPause()
+    }
+  }, [visibleModal]);
   const handleClickScroll = (e: string) => {
     const element = document.getElementById(e);
     if (element) {
@@ -56,7 +62,7 @@ const Home = () => {
   };
   return (
     <div ref={ref}>
-      <ModalContent />
+      <ModalContent visible={visibleModal} setVisible={setVisibleModal} />
       <SectionHead />
       <SectionText>
         <motion.h4
@@ -105,7 +111,14 @@ const Home = () => {
       <SectionComment />
       <SectionFooter />
 
-
+      <audio src="audio.mp3" ref={audioRef} loop />
+      <FloatButton
+        shape="circle"
+        onClick={togglePlayPause}
+        type="primary"
+        style={{ right: 94 }}
+        icon={isPlaying ? <PauseOutlined /> : <CaretRightOutlined />}
+      />
       <FloatButton.Group trigger="click" style={{ right: 24 }} type='primary' icon={<EllipsisOutlined />} >
         <FloatButton.BackTop visibilityHeight={0} />
         <FloatButton icon={<TeamOutlined />} onClick={() => handleClickScroll('SectionContentRight')} />

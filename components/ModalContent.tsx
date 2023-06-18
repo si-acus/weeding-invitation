@@ -4,8 +4,7 @@ import { useRouter } from 'next/router'
 const { Title } = Typography;
 import { useSpring, animated } from '@react-spring/web'
 
-const App = () => {
-    const [visible, setVisible] = useState(true);
+const App = ({ visible, setVisible }: { visible: boolean, setVisible: Function }) => {
     const router = useRouter()
     const { to } = router.query
     const styles = useSpring({
@@ -27,9 +26,9 @@ const App = () => {
                         Silvie & Aris
                     </Title>
                     <h3>Kepada Bapak/Ibu/Saudara/i</h3>
-                    <br/>
+                    <br />
                     <h3>{to}</h3>
-                    <br/>
+                    <br />
                     <Button key="back" onClick={() => setVisible(false)}>
                         Buka Undangan
                     </Button>,

@@ -5,7 +5,7 @@ import bg from '../../public/katelyn-macmillan-X1504kwZTnI-unsplash.jpg'
 
 
 const App = () => (
-    <section id="SectionInvitation" style={{
+    <section id="SectionComment" style={{
         backgroundImage: `url("${bg.src}")`,
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
